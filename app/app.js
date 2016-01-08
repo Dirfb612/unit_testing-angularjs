@@ -1,4 +1,4 @@
-angular
+/*angular
    .module('MyApp', [])
    .filter('reverse', [function () {
       return function (string) {
@@ -23,4 +23,4 @@ angular
       return function (scope, element) {
          element.addClass("plain");
       }
-   });
+   });*/

@@ -29,6 +29,6 @@ describe('Controller: ListCtrl', function () {
 
       expect(actualClass.finished).toBeFalsy();
 
-      expect(actualClass.unfinished).toBeTruthy();
+      expect(actualClass.unfinished).toBeTruthy();import myService from './appFactory.js';
    });
 });
