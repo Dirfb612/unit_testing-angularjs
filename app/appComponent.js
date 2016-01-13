@@ -1,0 +1,26 @@
+
+
+function myComponent() {
+   return {
+      bindToController: true,
+
+      controller: function () {
+         var vm = this;
+         vm.doSomething = doSomething;
+
+         function doSomething() {
+            vm.something.name = 'Do something';
+         }
+      },
+      controllerAs: 'vm',
+      restrict: 'E',
+      scope: {
+         something: '='
+      },
+      templateUrl: 'my-directive.html'
+
+
+   };
+}
+
+export default myComponent;

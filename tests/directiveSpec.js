@@ -1,4 +1,4 @@
-describe("Hello world", function () {
+xdescribe("Hello world", function () {
    var element;
    var $scope;
    beforeEach(module("MyApp"));

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
    <meta charset="UTF-8">
    <title></title>
 </head>
-<body>
-
+<body ng-controller="AppController as ctrl">
+<pre>{{ctrl.name}}</pre>
+<h5>Hola mundo</h5>
+<my-directive ng-repeat="user in ctrl.users" data="user"></my-directive>
+<script src="build/main.js"></script>
 </body>
 </html>

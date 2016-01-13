@@ -27,6 +27,7 @@ module.exports = function (config) {
        },*/
 
       preprocessors: {
+         'app/**/*.html': ['ng-html2js'],
          'spec.bundle.js': ['webpack', 'sourcemap']
       },
 

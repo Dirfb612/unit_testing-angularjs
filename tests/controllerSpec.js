@@ -1,5 +1,5 @@
 // File: chapter3/controllerSpec.js
-describe('Controller: ListCtrl', function () {
+xdescribe('Controller: ListCtrl', function () {
 // Instantiate a new version of my module before each test
    beforeEach(module('MyApp'));
    var ctrl;

@@ -1,6 +1,6 @@
 import appModule from './appModule.js';
 
-fdescribe('Controller: MyController', function () {
+xdescribe('Controller: MyController', function () {
    var AppController, LanguagesService;
 
    beforeEach(window.module(appModule.name));

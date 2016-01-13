@@ -5333,13 +5333,17 @@
 
 	var _appController2 = _interopRequireDefault(_appController);
 
-	var _appProvider = __webpack_require__(196);
+	var _appFactory = __webpack_require__(196);
 
-	var _appProvider2 = _interopRequireDefault(_appProvider);
+	var _appFactory2 = _interopRequireDefault(_appFactory);
+
+	var _appDirective = __webpack_require__(197);
+
+	var _appDirective2 = _interopRequireDefault(_appDirective);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var appModule = _angular2.default.module('app', []).controller('AppController', _appController2.default).provider('myProvider', _appProvider2.default);
+	var appModule = _angular2.default.module('app', []).controller('AppController', _appController2.default).factory('myFactory', _appFactory2.default).directive('myDirective', _appDirective2.default);
 
 	exports.default = appModule;
 
@@ -38760,7 +38764,11 @@
 	});
 
 	function AppController() {
+
 	   var self = this;
+
+	   self.name = 'John';
+
 	   self.items = [{ id: 1, label: 'First', done: true }, { id: 2, label: 'Second', done: false }];
 	   self.getDoneClass = function (item) {
 	      return {
@@ -38768,6 +38776,11 @@
 	         unfinished: !item.done
 	      };
 	   };
+
+	   self.users = [{ name: "John", type: "twitter" }, { name: "Maria", type: "facebook" }];
+
+	   console.log('--- users ---');
+	   console.log(self.users);
 	}
 
 	exports.default = AppController;
@@ -38776,20 +38789,57 @@
 /* 196 */
 /***/ function(module, exports) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	   value: true
 	});
-	function myProvider() {
-	   this.$get = function () {
-	      return {
-	         syncCall: function syncCall() {},
-	         asyncCall: function asyncCall() {}
-	      };
+	function myFactory() {
+	   var lng = {},
+	       _languages = ['en', 'es', 'fr'];
+
+	   lng.get = function () {
+	      console.log('--- _languages ---');
+	      console.log(_languages);
+	      return _languages;
+	   };
+	   console.log('---  lng---');
+	   console.log(lng);
+	   return lng;
+	}
+	exports.default = myFactory;
+
+/***/ },
+/* 197 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	   value: true
+	});
+
+	var _appController = __webpack_require__(195);
+
+	var _appController2 = _interopRequireDefault(_appController);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function directive() {
+
+	   return {
+	      restrict: 'E',
+	      template: '<div>{{user.name}}<div>',
+	      //templateUrl: 'path/template.tpl.html'
+	      controller: _appController2.default,
+	      scope: {
+	         user: '=data'
+	      },
+	      replace: true
 	   };
 	}
-	exports.default = myProvider;
+
+	exports.default = directive;
 
 /***/ }
 /******/ ]);

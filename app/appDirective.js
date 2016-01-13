@@ -1,9 +1,12 @@
-function myDirective (){
+import controller from './appController.js';
+
+function directive () {
 
    return {
       restrict: 'E',
-      template: '<div>{{user.name}}</div>',
+      template: '<div>{{user.name}}<div>',
       //templateUrl: 'path/template.tpl.html'
+      controller,
       scope: {
          user: '=data'
       },
@@ -12,4 +15,4 @@ function myDirective (){
 
 }
 
-export default myDirective;
+export default directive;
